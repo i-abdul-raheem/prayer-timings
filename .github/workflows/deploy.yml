@@ -20,13 +20,13 @@ jobs:
       - run: npm run build && npm run export   # generates ./out
 
       # Upload only the compiled site
-      - name: Deploy out/ to cPanel via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5   # ✅ correct owner + version
+      - name: Deploy out/ to cPanel via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.CPANEL_SFTP_HOST }}
           username: ${{ secrets.CPANEL_SFTP_USER }}
           password: ${{ secrets.CPANEL_SFTP_PASS }}
-          protocol: sftp
+          protocol: ftps
           local-dir: out/
           server-dir: /home/provmxcv/prayer-timings.com/
           exclude: |
