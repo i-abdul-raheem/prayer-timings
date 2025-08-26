@@ -21,7 +21,7 @@ jobs:
 
       # Upload only the compiled site
       - name: Deploy out/ to cPanel via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5   # ✅ correct owner + version
         with:
           server: ${{ secrets.CPANEL_SFTP_HOST }}
           username: ${{ secrets.CPANEL_SFTP_USER }}
@@ -29,7 +29,6 @@ jobs:
           protocol: sftp
           local-dir: out/
           server-dir: /home/provmxcv/prayer-timings.com/
-          # first run may take long; subsequent runs upload only changed files
           exclude: |
             **/.git*
             **/.DS_Store
