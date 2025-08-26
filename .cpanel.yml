@@ -11,10 +11,10 @@ deployment:
     # clean old builds
     - /bin/rm -rf .next out
 
-    # install deps & build/export (static)
+    # install deps & build (static export)
     - npm ci
-    - npx next build
-    - npx next export -o out
+    - npm run generate:massive
+    - npm run build
 
     # publish exported site to your domain root
     - /bin/rsync -a --delete out/ $DOC_ROOT/
