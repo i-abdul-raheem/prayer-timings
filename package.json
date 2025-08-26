@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
+    "deploy:cp": "npm ci && npm run build && npm run export",
     "generate": "node scripts/generate-pages.js",
     "generate:watch": "nodemon scripts/generate-pages.js --watch data.json",
     "generate:massive": "node scripts/generate-massive-pages.js",
