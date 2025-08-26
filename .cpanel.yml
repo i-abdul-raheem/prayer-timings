@@ -1,0 +1,20 @@
+---
+deployment:
+  tasks:
+    # set paths
+    - export APP_ROOT=/home/provmxcv/repositories/prayer-timings
+    - export DOC_ROOT=/home/provmxcv/prayer-timings.com
+
+    # go to repo
+    - cd $APP_ROOT
+
+    # clean old builds
+    - /bin/rm -rf .next out
+
+    # install deps & build/export (static)
+    - npm ci
+    - npx next build
+    - npx next export -o out
+
+    # publish exported site to your domain root
+    - /bin/rsync -a --delete out/ $DOC_ROOT/
