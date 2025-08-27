@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.CPANEL_SFTP_PASS }}
           protocol: ftps
           local-dir: out/
-          server-dir: /home/provmxcv/prayer-timings.com/
+          server-dir: /
           exclude: |
             **/.git*
             **/.DS_Store
