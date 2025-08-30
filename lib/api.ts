@@ -7,6 +7,13 @@ class PrayerTimesAPI {
 
   private constructor() {}
 
+  public static getInstance(): PrayerTimesAPI {
+    if (!PrayerTimesAPI.instance) {
+      PrayerTimesAPI.instance = new PrayerTimesAPI();
+    }
+    return PrayerTimesAPI.instance;
+  }
+
   /**
    * Ensure this code only runs on the server to avoid browser CORS issues.
    * If this file is imported in a client component and methods are called
