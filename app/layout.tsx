@@ -20,9 +20,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://prayer-timings.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

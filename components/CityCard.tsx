@@ -7,10 +7,10 @@ interface CityCardProps {
 }
 
 export function CityCard({ city }: CityCardProps) {
-  const slug = `${city.name.toLowerCase().replace(/\s+/g, '-')}-${city.country.toLowerCase().replace(/\s+/g, '-')}`;
+  const slug = `${city.country.toLowerCase().replace(/\s+/g, '-')}/${city.name.toLowerCase().replace(/\s+/g, '-')}`;
 
   return (
-    <Link href={`/city/${slug}`} className="group">
+    <Link href={`/${slug}`} className="group">
       <div className="card hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">

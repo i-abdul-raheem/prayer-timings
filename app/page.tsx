@@ -4,6 +4,7 @@ import { cities, getCitiesByRegion } from '@/lib/cities';
 import { SearchBar } from '@/components/SearchBar';
 import { CityCard } from '@/components/CityCard';
 import { RegionSection } from '@/components/RegionSection';
+import { Header } from '@/components/Header';
 
 export const metadata: Metadata = {
   title: 'Prayer Times - Accurate Islamic Prayer Times Worldwide',
@@ -27,8 +28,9 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <Header />
       {/* Hero Section */}
-      <section className="relative py-20 px-4 text-center">
+      <section className="relative py-20 px-4 text-center pt-32">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Accurate{' '}
@@ -140,7 +142,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-gray-50" id='why-us'>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             Why Choose Our Prayer Times?

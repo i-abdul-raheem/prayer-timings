@@ -24,8 +24,8 @@ export function SearchBar() {
   }, [query]);
 
   const handleCitySelect = (city: City) => {
-    const slug = `${city.name.toLowerCase().replace(/\s+/g, '-')}-${city.country.toLowerCase().replace(/\s+/g, '-')}`;
-    router.push(`/city/${slug}`);
+    const slug = `${city.country.toLowerCase().replace(/\s+/g, '-')}/${city.name.toLowerCase().replace(/\s+/g, '-')}`;
+    router.push(`/${slug}`);
     setIsOpen(false);
     setQuery('');
   };
