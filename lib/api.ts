@@ -3,15 +3,21 @@ import { PrayerTimesResponse, PrayerTimes } from './types';
 
 class PrayerTimesAPI {
   private static instance: PrayerTimesAPI;
-  private baseURL = 'http://api.aladhan.com/v1';
+  private baseURL = 'https://api.aladhan.com/v1';
 
   private constructor() {}
 
-  public static getInstance(): PrayerTimesAPI {
-    if (!PrayerTimesAPI.instance) {
-      PrayerTimesAPI.instance = new PrayerTimesAPI();
+  /**
+   * Ensure this code only runs on the server to avoid browser CORS issues.
+   * If this file is imported in a client component and methods are called
+   * from the browser, CORS will block the requests to third-party APIs.
+   */
+  private ensureServerSide() {
+    if (typeof window !== 'undefined') {
+      throw new Error(
+        'PrayerTimesAPI methods are intended for server-side usage only. Call them in a Next.js API route, server component, getServerSideProps, or revalidate on the server to avoid CORS.'
+      );
     }
-    return PrayerTimesAPI.instance;
   }
 
   async getPrayerTimes(params: {
@@ -23,8 +29,12 @@ class PrayerTimesAPI {
     timeformat?: number;
     tune?: string;
   }): Promise<PrayerTimesResponse> {
+    this.ensureServerSide();
     try {
-      const response = await axios.get(`${this.baseURL}/timings`, { params });
+      const response = await axios.get(`${this.baseURL}/timings`, {
+        params,
+        timeout: 15000
+      });
       return response.data;
     } catch (error) {
       throw new Error(`Failed to fetch prayer times: ${error}`);
@@ -41,6 +51,7 @@ class PrayerTimesAPI {
     timeformat?: number;
     tune?: string;
   }): Promise<PrayerTimesResponse> {
+    this.ensureServerSide();
     try {
       // First, try to get coordinates for the city using a geocoding service
       const coordinates = await this.getCityCoordinates(params.city, params.country);
@@ -62,10 +73,16 @@ class PrayerTimesAPI {
 
   // Get city coordinates using a free geocoding service
   private async getCityCoordinates(city: string, country: string): Promise<{ latitude: number; longitude: number }> {
+    this.ensureServerSide();
     try {
       // Use OpenStreetMap Nominatim (free geocoding service)
       const query = encodeURIComponent(`${city}, ${country}`);
-      const response = await axios.get(`https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`);
+      const response = await axios.get(`https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`, {
+        headers: {
+          'User-Agent': 'prayer-timings-app/1.0 (contact: youremail@example.com)',
+          'Referer': 'https://yourdomain.com/'
+        }
+      });
       
       if (response.data && response.data.length > 0) {
         const location = response.data[0];
@@ -77,7 +94,12 @@ class PrayerTimesAPI {
       
       // Fallback: try with just city name
       const cityQuery = encodeURIComponent(city);
-      const cityResponse = await axios.get(`https://nominatim.openstreetmap.org/search?q=${cityQuery}&format=json&limit=1`);
+      const cityResponse = await axios.get(`https://nominatim.openstreetmap.org/search?q=${cityQuery}&format=json&limit=1`, {
+        headers: {
+          'User-Agent': 'prayer-timings-app/1.0 (contact: youremail@example.com)',
+          'Referer': 'https://yourdomain.com/'
+        }
+      });
       
       if (cityResponse.data && cityResponse.data.length > 0) {
         const location = cityResponse.data[0];
@@ -112,8 +134,12 @@ class PrayerTimesAPI {
     timeformat?: number;
     tune?: string;
   }): Promise<any> {
+    this.ensureServerSide();
     try {
-      const response = await axios.get(`${this.baseURL}/calendar`, { params });
+      const response = await axios.get(`${this.baseURL}/calendar`, {
+        params,
+        timeout: 15000
+      });
       return response.data;
     } catch (error) {
       throw new Error(`Failed to fetch calendar: ${error}`);
@@ -124,8 +150,12 @@ class PrayerTimesAPI {
     latitude: number;
     longitude: number;
   }): Promise<any> {
+    this.ensureServerSide();
     try {
-      const response = await axios.get(`${this.baseURL}/qibla`, { params });
+      const response = await axios.get(`${this.baseURL}/qibla`, {
+        params,
+        timeout: 15000
+      });
       return response.data;
     } catch (error) {
       throw new Error(`Failed to fetch qibla direction: ${error}`);
@@ -134,6 +164,7 @@ class PrayerTimesAPI {
 
   // Get qibla direction by city name
   async getQiblaDirectionByCity(city: string, country: string): Promise<any> {
+    this.ensureServerSide();
     try {
       const coordinates = await this.getCityCoordinates(city, country);
       return await this.getQiblaDirection(coordinates);
