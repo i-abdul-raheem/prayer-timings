@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Globe, MapPin, Users } from 'lucide-react';
+import countriesData from '@/countries_cities.json';
 
 export const metadata: Metadata = {
   title: 'All Countries - Prayer Times Worldwide',
@@ -15,14 +16,7 @@ export const metadata: Metadata = {
 export default function CountriesPage() {
   // We'll load this data dynamically to avoid importing the massive file
   // For now, showing a loading state and will be populated by the generator
-  const featuredCountries = [
-    'Pakistan', 'India', 'Saudi Arabia', 'UAE', 'Egypt', 'Turkey',
-    'Indonesia', 'Malaysia', 'Singapore', 'Thailand', 'Philippines', 'Vietnam',
-    'UK', 'France', 'Germany', 'Spain', 'Italy', 'Netherlands',
-    'USA', 'Canada', 'Mexico', 'Brazil', 'Argentina', 'Peru',
-    'Nigeria', 'DR Congo', 'Angola', 'Tanzania', 'Kenya', 'Ethiopia',
-    'Australia', 'New Zealand', 'China', 'Japan', 'Korea, South'
-  ];
+  const featuredCountries = Object.keys(countriesData).sort();
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -65,15 +59,6 @@ export default function CountriesPage() {
             </div>
             <div className="text-3xl font-bold text-primary-600">24/7</div>
             <div className="text-gray-600">Available</div>
-          </div>
-        </div>
-
-        {/* Note about data loading */}
-        <div className="text-center mb-8">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
-            <p className="text-blue-800">
-              <strong>Note:</strong> This page shows featured countries. Run <code className="bg-blue-100 px-2 py-1 rounded">npm run generate:massive</code> to generate all 242 countries with their cities.
-            </p>
           </div>
         </div>
 

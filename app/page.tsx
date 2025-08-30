@@ -1,47 +1,77 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { cities, getCitiesByRegion } from '@/lib/cities';
-import { SearchBar } from '@/components/SearchBar';
-import { CityCard } from '@/components/CityCard';
-import { RegionSection } from '@/components/RegionSection';
-import { Header } from '@/components/Header';
+import { Metadata } from "next";
+import Link from "next/link";
+import { cities } from "@/lib/cities";
+import { SearchBar } from "@/components/SearchBar";
+import { CityCard } from "@/components/CityCard";
+import { RegionSection } from "@/components/RegionSection";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: 'Prayer Times - Accurate Islamic Prayer Times Worldwide',
-  description: 'Get accurate prayer times for cities worldwide. Find Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times with precise calculations.',
-  keywords: ['prayer times', 'salah times', 'islamic prayer', 'fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'muslim prayer'],
+  title: "Prayer Times - Accurate Islamic Prayer Times Worldwide",
+  description:
+    "Get accurate prayer times for cities worldwide. Find Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times with precise calculations.",
+  keywords: [
+    "prayer times",
+    "salah times",
+    "islamic prayer",
+    "fajr",
+    "dhuhr",
+    "asr",
+    "maghrib",
+    "isha",
+    "muslim prayer",
+  ],
   openGraph: {
-    title: 'Prayer Times - Accurate Islamic Prayer Times Worldwide',
-    description: 'Get accurate prayer times for cities worldwide. Find Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times with precise calculations.',
+    title: "Prayer Times - Accurate Islamic Prayer Times Worldwide",
+    description:
+      "Get accurate prayer times for cities worldwide. Find Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times with precise calculations.",
   },
 };
 
 export default function HomePage() {
   const featuredCities = cities.slice(0, 12);
-  const regions = ['Middle East', 'South Asia', 'Asia', 'Europe', 'North America', 'Africa', 'Oceania', 'South America'];
-  
+  const regions = [
+    "Middle East",
+    "South Asia",
+    "Asia",
+    "Europe",
+    "North America",
+    "Africa",
+    "Oceania",
+    "South America",
+  ];
+
   // We'll load countries dynamically to avoid importing the massive file
   const featuredCountries = [
-    'Pakistan', 'India', 'Saudi Arabia', 'UAE', 'Egypt', 'Turkey',
-    'Indonesia', 'Malaysia', 'UK', 'France', 'Germany', 'USA'
+    "Pakistan",
+    "India",
+    "Saudi Arabia",
+    "United Arab Emirates",
+    "Egypt",
+    "Turkey",
+    "Indonesia",
+    "Malaysia",
+    "United Kingdom",
+    "France",
+    "Germany",
+    "United States",
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <Header />
       {/* Hero Section */}
       <section className="relative py-20 px-4 text-center pt-32">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Accurate{' '}
-            <span className="text-gradient">Prayer Times</span>
+            Accurate <span className="text-gradient">Prayer Times</span>
             <br />
             Worldwide
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Get precise prayer times for cities around the world. Find Fajr, Dhuhr, Asr, Maghrib, and Isha times with reliable calculations.
+            Get precise prayer times for cities around the world. Find Fajr,
+            Dhuhr, Asr, Maghrib, and Isha times with reliable calculations.
           </p>
-          
+
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-12">
             <SearchBar />
@@ -92,8 +122,8 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {featuredCountries.map((country) => {
-              const countrySlug = country.toLowerCase().replace(/\s+/g, '-');
-              
+              const countrySlug = country.toLowerCase().replace(/\s+/g, "-");
+
               return (
                 <Link key={country} href={`/${countrySlug}`} className="group">
                   <div className="card hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer text-center">
@@ -102,15 +132,13 @@ export default function HomePage() {
                         {country.charAt(0)}
                       </span>
                     </div>
-                    
+
                     <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-200">
                       {country}
                     </h3>
-                    
-                    <p className="text-gray-600 mb-4">
-                      View Cities
-                    </p>
-                    
+
+                    <p className="text-gray-600 mb-4">View Cities</p>
+
                     <div className="text-sm text-primary-600 font-medium group-hover:text-primary-700 transition-colors duration-200">
                       Browse Cities →
                     </div>
@@ -142,7 +170,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="py-16 px-4 bg-gray-50" id='why-us'>
+      <section className="py-16 px-4 bg-gray-50" id="why-us">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             Why Choose Our Prayer Times?
@@ -150,31 +178,86 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-8 h-8 text-primary-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Accurate Calculations</h3>
-              <p className="text-gray-600">Using reliable astronomical calculations and multiple calculation methods</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Accurate Calculations
+              </h3>
+              <p className="text-gray-600">
+                Using reliable astronomical calculations and multiple
+                calculation methods
+              </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-8 h-8 text-primary-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Global Coverage</h3>
-              <p className="text-gray-600">Prayer times for cities across all continents and time zones</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Global Coverage
+              </h3>
+              <p className="text-gray-600">
+                Prayer times for cities across all continents and time zones
+              </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-8 h-8 text-primary-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Multiple Methods</h3>
-              <p className="text-gray-600">Support for different calculation methods used worldwide</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Multiple Methods
+              </h3>
+              <p className="text-gray-600">
+                Support for different calculation methods used worldwide
+              </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section className="py-16 px-4 bg-white" id="contact-us">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Contact Us
+          </h2>
+          <div className="max-w-3xl mx-auto">
+            <ContactForm />
           </div>
         </div>
       </section>

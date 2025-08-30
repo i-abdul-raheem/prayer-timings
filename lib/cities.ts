@@ -13,8 +13,8 @@ export const cities: City[] = [
   { name: "Mecca", country: "Saudi Arabia", region: "Middle East", latitude: 21.4225, longitude: 39.8262, timezone: "Asia/Riyadh" },
   { name: "Medina", country: "Saudi Arabia", region: "Middle East", latitude: 24.5247, longitude: 39.5692, timezone: "Asia/Riyadh" },
   { name: "Riyadh", country: "Saudi Arabia", region: "Middle East", latitude: 24.7136, longitude: 46.6753, timezone: "Asia/Riyadh" },
-  { name: "Dubai", country: "UAE", region: "Middle East", latitude: 25.2048, longitude: 55.2708, timezone: "Asia/Dubai" },
-  { name: "Abu Dhabi", country: "UAE", region: "Middle East", latitude: 24.4539, longitude: 54.3773, timezone: "Asia/Dubai" },
+  { name: "Dubai", country: "United Arab Emirates", region: "Middle East", latitude: 25.2048, longitude: 55.2708, timezone: "Asia/Dubai" },
+  { name: "Abu Dhabi", country: "United Arab Emirates", region: "Middle East", latitude: 24.4539, longitude: 54.3773, timezone: "Asia/Dubai" },
   { name: "Cairo", country: "Egypt", region: "Middle East", latitude: 30.0444, longitude: 31.2357, timezone: "Africa/Cairo" },
   { name: "Istanbul", country: "Turkey", region: "Middle East", latitude: 41.0082, longitude: 28.9784, timezone: "Europe/Istanbul" },
   { name: "Tehran", country: "Iran", region: "Middle East", latitude: 35.6892, longitude: 51.3890, timezone: "Asia/Tehran" },
@@ -65,7 +65,7 @@ export const cities: City[] = [
   { name: "Sylhet", country: "Bangladesh", region: "South Asia", latitude: 24.8949, longitude: 91.8687, timezone: "Asia/Dhaka" },
 
   // Europe
-  { name: "London", country: "UK", region: "Europe", latitude: 51.5074, longitude: -0.1278, timezone: "Europe/London" },
+  { name: "London", country: "United Kingdom", region: "Europe", latitude: 51.5074, longitude: -0.1278, timezone: "Europe/London" },
   { name: "Paris", country: "France", region: "Europe", latitude: 48.8566, longitude: 2.3522, timezone: "Europe/Paris" },
   { name: "Berlin", country: "Germany", region: "Europe", latitude: 52.5200, longitude: 13.4050, timezone: "Europe/Berlin" },
   { name: "Madrid", country: "Spain", region: "Europe", latitude: 40.4168, longitude: -3.7038, timezone: "Europe/Madrid" },
@@ -77,16 +77,16 @@ export const cities: City[] = [
   { name: "Budapest", country: "Hungary", region: "Europe", latitude: 47.4979, longitude: 19.0402, timezone: "Europe/Budapest" },
 
   // North America
-  { name: "New York", country: "USA", region: "North America", latitude: 40.7128, longitude: -74.0060, timezone: "America/New_York" },
-  { name: "Los Angeles", country: "USA", region: "North America", latitude: 34.0522, longitude: -118.2437, timezone: "America/Los_Angeles" },
-  { name: "Chicago", country: "USA", region: "North America", latitude: 41.8781, longitude: -87.6298, timezone: "America/Chicago" },
-  { name: "Houston", country: "USA", region: "North America", latitude: 29.7604, longitude: -95.3698, timezone: "America/Chicago" },
-  { name: "Phoenix", country: "USA", region: "North America", latitude: 33.4484, longitude: -112.0740, timezone: "America/Phoenix" },
-  { name: "Philadelphia", country: "USA", region: "North America", latitude: 39.9526, longitude: -75.1652, timezone: "America/New_York" },
-  { name: "San Antonio", country: "USA", region: "North America", latitude: 29.4241, longitude: -98.4936, timezone: "America/Chicago" },
-  { name: "San Diego", country: "USA", region: "North America", latitude: 32.7157, longitude: -117.1611, timezone: "America/Los_Angeles" },
-  { name: "Dallas", country: "USA", region: "North America", latitude: 32.7767, longitude: -96.7970, timezone: "America/Chicago" },
-  { name: "San Jose", country: "USA", region: "North America", latitude: 37.3382, longitude: -121.8863, timezone: "America/Los_Angeles" },
+  { name: "New York", country: "United States", region: "North America", latitude: 40.7128, longitude: -74.0060, timezone: "America/New_York" },
+  { name: "Los Angeles", country: "United States", region: "North America", latitude: 34.0522, longitude: -118.2437, timezone: "America/Los_Angeles" },
+  { name: "Chicago", country: "United States", region: "North America", latitude: 41.8781, longitude: -87.6298, timezone: "America/Chicago" },
+  { name: "Houston", country: "United States", region: "North America", latitude: 29.7604, longitude: -95.3698, timezone: "America/Chicago" },
+  { name: "Phoenix", country: "United States", region: "North America", latitude: 33.4484, longitude: -112.0740, timezone: "America/Phoenix" },
+  { name: "Philadelphia", country: "United States", region: "North America", latitude: 39.9526, longitude: -75.1652, timezone: "America/New_York" },
+  { name: "San Antonio", country: "United States", region: "North America", latitude: 29.4241, longitude: -98.4936, timezone: "America/Chicago" },
+  { name: "San Diego", country: "United States", region: "North America", latitude: 32.7157, longitude: -117.1611, timezone: "America/Los_Angeles" },
+  { name: "Dallas", country: "United States", region: "North America", latitude: 32.7767, longitude: -96.7970, timezone: "America/Chicago" },
+  { name: "San Jose", country: "United States", region: "North America", latitude: 37.3382, longitude: -121.8863, timezone: "America/Los_Angeles" },
 
   // Canada
   { name: "Toronto", country: "Canada", region: "North America", latitude: 43.6532, longitude: -79.3832, timezone: "America/Toronto" },
